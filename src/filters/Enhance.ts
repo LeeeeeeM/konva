@@ -2,9 +2,9 @@ import { Factory } from '../Factory';
 import { Node, Filter } from '../Node';
 import { getNumberValidator } from '../Validators';
 
-function remap(fromValue, fromMin, fromMax, toMin, toMax) {
+function remap(fromValue: number, fromMin: number, fromMax: number, toMin: number, toMax: number) {
   // Compute the range of the data
-  var fromRange = fromMax - fromMin,
+  let fromRange = fromMax - fromMin,
     toRange = toMax - toMin,
     toValue;
 
@@ -38,7 +38,7 @@ function remap(fromValue, fromMin, fromMax, toMin, toMax) {
  * node.enhance(0.4);
  */
 export const Enhance: Filter = function (imageData) {
-  var data = imageData.data,
+  let data = imageData.data,
     nSubPixels = data.length,
     rMin = data[0],
     rMax = rMin,
@@ -52,7 +52,7 @@ export const Enhance: Filter = function (imageData) {
     i;
 
   // If we are not enhancing anything - don't do any computation
-  var enhanceAmount = this.enhance();
+  const enhanceAmount = this.enhance();
   if (enhanceAmount === 0) {
     return;
   }
@@ -96,7 +96,7 @@ export const Enhance: Filter = function (imageData) {
     bMin = 0;
   }
 
-  var rMid,
+  let rMid,
     rGoalMax,
     rGoalMin,
     gMid,
